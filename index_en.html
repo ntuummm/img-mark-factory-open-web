@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Charset declaration for encoding -->
+    <meta charset="UTF-8" />
+    <!-- Meta viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title of the webpage -->
+    <title>ImgMarkFactory Open Web | Image Watermarking Tool</title>
+    <!-- SEO Meta description for better ranking -->
+    <meta
+      name="description"
+      content="ImgMarkFactory Open Web offers a simple and efficient tool to add watermarks to your images with customizable options like text, color, position, and opacity."
+    />
+    <!-- Meta keywords for targeted SEO -->
+    <meta name="keywords" content="image watermark, watermark tool, free watermark generator, online watermarking" />
+    <!-- Open Graph metadata for social sharing -->
+    <meta property="og:title" content="ImgMarkFactory Open Web" />
+    <meta property="og:description" content="Easily add customizable watermarks to your images with ImgMarkFactory Open Web." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ntuummm.github.io/img-mark-factory-open-web" />
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts for better typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Thai:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS for responsive and styled components -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap JS for interactive components -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="./img-mark-factory.css" />
+    <!-- jQuery for DOM manipulation -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom JavaScript -->
+    <script src="./img-mark-factory.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main heading with clear, keyword-rich content -->
+      <h1 style="padding: 0">ImgMarkFactory Open Web | Best Watermark Tool</h1>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <div class="row">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#demoVideoModal">Demo Video</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="demoVideoModal" tabindex="-1" aria-labelledby="demoVideoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="demoVideoModalLabel">Demo Video</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/nRRr8H1iHUs?si=lqlOo90c8kKvqsRY"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Language switcher for accessibility -->
+        <div id="lang"><a href="index.html" hreflang="th">ภาษาไทย</a> | <span>English</span></div>
+      </div>
+      <form id="watermark-form">
+        <div class="row">
+          <!-- Button to select images -->
+          <button type="button" id="select-images-button" class="btn btn-primary">Select Images (Limit 3)</button>
+          <!-- Hidden input to store selected images -->
+          <input type="hidden" id="selected-images" name="selected_images" value="" />
+        </div>
+
+        <div class="row">
+          <!-- Preview section for selected images -->
+          <div id="preview-selected-images"></div>
+        </div>
+
+        <!-- Dropdown to select watermark type -->
+        <div class="row">
+          <label for="watermark-type" class="form-label">Watermark Type:</label>
+          <select id="watermark-type" name="watermark_type" class="form-select">
+            <option value="text">Text</option>
+          </select>
+        </div>
+
+        <!-- Input field for watermark text -->
+        <div class="row">
+          <label for="watermark-text" class="form-label">Watermark Text:</label>
+          <input type="text" id="watermark-text" name="watermark_text" class="form-control" />
+        </div>
+
+        <!-- Color palette for text color selection -->
+        <div class="row" id="watermark-text-color-options">
+          <label for="watermark-color" class="form-label">Watermark Text Color:</label>
+          <div id="color-palette">
+            <!-- Individual color options -->
+            <div class="color-option" data-color="#FFFFFF" style="background-color: #ffffff"></div>
+            <div class="color-option" data-color="#000000" style="background-color: #000000"></div>
+            <div class="color-option" data-color="#FF0000" style="background-color: #ff0000"></div>
+            <div class="color-option" data-color="#00FF00" style="background-color: #00ff00"></div>
+            <div class="color-option" data-color="#0000FF" style="background-color: #0000ff"></div>
+          </div>
+          <!-- Hidden input to store selected color -->
+          <input type="hidden" id="watermark-color" name="watermark_color" value="#FFFFFF" />
+        </div>
+
+        <!-- Dropdown to select watermark position -->
+        <div class="row">
+          <label for="watermark-position" class="form-label">Watermark Position:</label>
+          <select id="watermark-position" name="watermark_position" class="form-select">
+            <option value="center">Center</option>
+            <option value="bottom-right">Bottom Right</option>
+          </select>
+        </div>
+
+        <!-- Input for watermark opacity -->
+        <div class="row">
+          <label for="watermark-opacity" class="form-label">Watermark Opacity (0 to 1):</label>
+          <input type="number" id="watermark-opacity" name="watermark_opacity" step="0.1" min="0.1" max="1" value="0.7" class="form-control" />
+        </div>
+
+        <!-- Section to preview watermark -->
+        <div class="row" id="watermark-preview">
+          <h3 class="form-label">Preview</h3>
+          <span class="form-label"
+            ><strong>Tip:</strong> Adjust position by dragging on the preview!<br />
+            <strong>Note:</strong> Preview quality is lower than final export.</span
+          >
+          <div id="watermark-preview-area"></div>
+        </div>
+
+        <div class="row">
+          <!-- Buttons for applying watermark and resetting the form -->
+          <div class="col" style="padding: 0">
+            <button type="button" id="export-image-with-watermark-button" class="btn btn-primary">Apply Watermark</button>
+            <button type="button" id="reset-button" class="btn btn-light">Reset</button>
+          </div>
+          <!-- Note for usage limits -->
+          <div><strong>Please note:</strong> You can export up to 20 images per hour.</div>
+          <!-- Message display -->
+          <div id="watermark-message" style="margin-top: 10px; padding: 10px; display: none; border-radius: 5px"></div>
+          <!-- Loading indicator -->
+          <div id="loading-overlay"></div>
+          <div id="loading-indicator" style="display: none">
+            <p id="loading-text">Processing, please wait</p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <!-- Left Column: About -->
+        <div class="footer-about">
+          <h3>About Me</h3>
+          <p>Hi, I'm ntuumm! 👋🐶💻 I'm a developer who loves dogs and coding! 🐕✨</p>
+        </div>
+        <!-- Right Column: Links -->
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="https://github.com/ntuummm" target="_blank">GitHub</a></li>
+            <li><a href="https://ntuummm.github.io/my/img-mark-factory/index.html" target="_blank">Privacy Policy & FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 ntuummm. Built with love and passion.</p>
+      </div>
+    </footer>
+  </body>
+</html>

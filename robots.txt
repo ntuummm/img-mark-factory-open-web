@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ntuummm.github.io/img-mark-factory-open-web/sitemap.xml

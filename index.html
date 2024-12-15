@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Character encoding declaration -->
+    <meta charset="UTF-8" />
+    <!-- Meta viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page title optimized for SEO -->
+    <title>ImgMarkFactory | เว็บสร้างลายน้ำสำหรับรูปภาพ</title>
+    <!-- Meta description for search engines -->
+    <meta
+      name="description"
+      content="ImgMarkFactory ช่วยให้คุณเพิ่มลายน้ำในรูปภาพได้อย่างง่ายดาย เลือกข้อความ สี ตำแหน่ง และความโปร่งแสงตามต้องการ"
+    />
+    <!-- Keywords for SEO -->
+    <meta name="keywords" content="สร้างลายน้ำ, ลายน้ำรูปภาพ, โปรแกรมเพิ่มลายน้ำ, ลายน้ำออนไลน์" />
+    <!-- Open Graph metadata for social media sharing -->
+    <meta property="og:title" content="ImgMarkFactory | เว็บสร้างลายน้ำสำหรับรูปภาพ" />
+    <meta property="og:description" content="เพิ่มลายน้ำในรูปภาพของคุณอย่างง่ายดายด้วย ImgMarkFactory เครื่องมือที่ใช้งานง่ายและรวดเร็ว" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ntuummm.github.io/img-mark-factory-open-web" />
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts for better typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Thai:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS for responsive styling -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap JS for interactive components -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./img-mark-factory.css" />
+    <!-- jQuery for DOM manipulation -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom JavaScript -->
+    <script src="./img-mark-factory.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header with localized title for SEO -->
+      <h1 style="padding: 0">ImgMarkFactory Open Web | เว็บสร้างลายน้ำ</h1>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <div class="row">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#demoVideoModal">ตัวอย่างการใช้งาน</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="demoVideoModal" tabindex="-1" aria-labelledby="demoVideoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="demoVideoModalLabel">ตัวอย่างการใช้งาน</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/nRRr8H1iHUs?si=lqlOo90c8kKvqsRY"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Language switcher with hreflang for better localization -->
+        <div id="lang"><span>ภาษาไทย</span> | <a href="index_en.html" hreflang="en">English</a></div>
+      </div>
+      <form id="watermark-form">
+        <div class="row">
+          <!-- Button to select images -->
+          <button type="button" id="select-images-button" class="btn btn-primary">เลือกรูปภาพ (จำกัด 3 รูปภาพ)</button>
+          <!-- Hidden input to store selected image paths -->
+          <input type="hidden" id="selected-images" name="selected_images" value="" />
+        </div>
+
+        <div class="row">
+          <!-- Section to preview selected images -->
+          <div id="preview-selected-images"></div>
+        </div>
+
+        <!-- Dropdown for watermark type -->
+        <div class="row">
+          <label for="watermark-type" class="form-label">ประเภทลายน้ำ:</label>
+          <select id="watermark-type" name="watermark_type" class="form-select">
+            <option value="text">ข้อความ</option>
+          </select>
+        </div>
+
+        <!-- Input for watermark text -->
+        <div class="row">
+          <label for="watermark-text" class="form-label">ข้อความ:</label>
+          <input type="text" id="watermark-text" name="watermark_text" class="form-control" />
+        </div>
+
+        <!-- Section for selecting text color -->
+        <div class="row" id="watermark-text-color-options">
+          <label for="watermark-color" class="form-label">สีของข้อความ:</label>
+          <div id="color-palette">
+            <!-- Individual color options -->
+            <div class="color-option" data-color="#FFFFFF" style="background-color: #ffffff"></div>
+            <div class="color-option" data-color="#000000" style="background-color: #000000"></div>
+            <div class="color-option" data-color="#FF0000" style="background-color: #ff0000"></div>
+            <div class="color-option" data-color="#00FF00" style="background-color: #00ff00"></div>
+            <div class="color-option" data-color="#0000FF" style="background-color: #0000ff"></div>
+          </div>
+          <!-- Hidden input for storing selected color -->
+          <input type="hidden" id="watermark-color" name="watermark_color" value="#FFFFFF" />
+        </div>
+
+        <!-- Dropdown for watermark position -->
+        <div class="row">
+          <label for="watermark-position" class="form-label">ตำแหน่ง:</label>
+          <select id="watermark-position" name="watermark_position" class="form-select">
+            <option value="center">ตรงกลาง</option>
+            <option value="bottom-right">ล่างขวา</option>
+          </select>
+        </div>
+
+        <!-- Input for watermark opacity -->
+        <div class="row">
+          <label for="watermark-opacity" class="form-label">ความโปร่งแสง (0 to 1):</label>
+          <input type="number" id="watermark-opacity" name="watermark_opacity" step="0.1" min="0.1" max="1" value="0.7" class="form-control" />
+        </div>
+
+        <!-- Section to preview watermark -->
+        <div class="row" id="watermark-preview">
+          <h3 class="form-label">ตัวอย่าง</h3>
+          <span class="form-label"
+            ><strong>ทิป:</strong> คุณสามารถใช้เมาส์เลื่อนที่ข้อความเพื่อปรับตำแหน่ง
+            <br />
+            <strong>โน้ต:</strong> รูปตัวอย่างอาจจะมีคุณภาพต่ำ แต่ไม่มีผลกับภาพผลลัพธ์</span
+          >
+          <div id="watermark-preview-area"></div>
+        </div>
+
+        <div class="row">
+          <!-- Buttons for creating watermark and resetting the form -->
+          <div class="col" style="padding: 0">
+            <button type="button" id="export-image-with-watermark-button" class="btn btn-primary">สร้างลายน้ำ</button>
+            <button type="button" id="reset-button" class="btn btn-light">รีเซต</button>
+          </div>
+          <!-- Note for usage limit -->
+          <div><strong>โน้ต:</strong> เพื่อความลื่นไหลในการใช้งาน คุณสามารถสร้างลายน้ำได้ 20 รูปภาพต่อชั่วโมง</div>
+          <!-- Loading indicators -->
+          <div id="watermark-message" style="margin-top: 10px; padding: 10px; display: none; border-radius: 5px"></div>
+          <div id="loading-overlay"></div>
+          <div id="loading-indicator" style="display: none">
+            <p id="loading-text">กำลังประมวลผล โปรดรอ...</p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <!-- Left Column: About -->
+        <div class="footer-about">
+          <h3>About Me</h3>
+          <p>Hi, I'm ntuumm! 👋🐶💻 I'm a developer who loves dogs and coding! 🐕✨</p>
+        </div>
+        <!-- Right Column: Links -->
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="https://github.com/ntuummm" target="_blank">GitHub</a></li>
+            <li><a href="https://ntuummm.github.io/my/img-mark-factory/index.html" target="_blank">Privacy Policy & FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 ntuummm. Built with love and passion.</p>
+      </div>
+    </footer>
+  </body>
+</html>
